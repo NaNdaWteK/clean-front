@@ -8,7 +8,7 @@ export class LoggerRunner extends BaseRunner {
   }
 
   next(context) {
-    const AlertRunner = new AlertRunner()
+    const alertRunner = new AlertRunner()
     this.logger.group(context.useCase.constructor.name)
     this.logger.group('Parameters')
     this.logger.log(`${context.param ?? '-'}`)
@@ -17,7 +17,7 @@ export class LoggerRunner extends BaseRunner {
     this.logger.object(context.result ?? '-')
     this.logger.groupEnd()
     this.logger.groupEnd()
-    this.setNext(AlertRunner)
+    this.setNext(alertRunner)
     this.nextLink.next(context)
   }
 }

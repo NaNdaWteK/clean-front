@@ -24,7 +24,6 @@ class NandawtekTodoList extends HTMLElement {
     this._events()
   }
 
-
   completeTodo(event) {
     const id = event.target.getAttribute('key')
     this.completeTodoCommand.execute(id)

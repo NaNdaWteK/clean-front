@@ -1,4 +1,4 @@
-import { TodoNotFoundError } from '../../infrastructure/exceptions/TodoNotFoundError'
+import { TodoNotFoundError } from '../../../infrastructure/exceptions/TodoNotFoundError'
 
 export class TodoLocalRepository {
   constructor(window) {

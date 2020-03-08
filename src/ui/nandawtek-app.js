@@ -1,4 +1,4 @@
-import {StateManager} from '../infrastructure/StateManager.js'
+import {StateManager} from '../application/StateManager.js'
 
 class NandawtekApp extends HTMLElement {
   constructor() {

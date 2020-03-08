@@ -8,7 +8,6 @@ class NandawtekCreateTodo extends HTMLElement {
     this.stateManager = parent.stateManager
     this.todoLocalRepository = new TodoLocalRepository(window)
     this.createTodoCommand = new CreateTodoCommand(this.stateManager, this.todoLocalRepository)
-    this.todoText = ''
     this.attachShadow({ mode: 'open' })
     this._addTemplate()
     this._events()
@@ -18,8 +17,9 @@ class NandawtekCreateTodo extends HTMLElement {
   }
 
   createTodo() {
-    this.createTodoCommand.execute(this.shadowRoot.querySelector('nandawtek-input').shadowRoot.querySelector('input').value)
-    this.todoText = ''
+    const input = this.shadowRoot.querySelector('nandawtek-input').shadowRoot.querySelector('input')
+    this.createTodoCommand.execute(input.value)
+    input.value = ''
   }
 
   _events () {

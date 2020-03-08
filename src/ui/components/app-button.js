@@ -3,20 +3,9 @@ class NandawtekButton extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' })
     this._addTemplate()
-    this._events()
   }
-  
+
   connectedCallback() {
-  }
-
-  clicked(event) {
-    return event
-  }
-
-  _events () {
-    this.shadowRoot
-      .querySelector('button')
-      .addEventListener('click', this.clicked.bind(this))
   }
 
   _addTemplate() {

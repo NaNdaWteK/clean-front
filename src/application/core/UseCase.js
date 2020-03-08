@@ -6,9 +6,9 @@ import { ConsoleLogger } from '../../infrastructure/ConsoleLogger'
 export class UseCase {
   execute(param){
     const consoleLogger = new ConsoleLogger(window)
-    const ExecutorRunner = new ExecutorRunner()
-    const LoggerRunner = new LoggerRunner(consoleLogger)
-    const runners = new Runner(ExecutorRunner, LoggerRunner)
+    const executorRunner = new ExecutorRunner()
+    const loggerRunner = new LoggerRunner(consoleLogger)
+    const runner = new Runner(executorRunner, loggerRunner)
     return runner.run(this, param)
   }
 }
