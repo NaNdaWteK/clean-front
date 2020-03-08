@@ -1,6 +1,6 @@
-import {CompleteTodoCommand} from '../../application/commands/CompleteTodoCommand.js'
-import {GetTodosQuerie} from '../../application/queries/GetTodosQuerie.js'
-import {TodoLocalRepository} from '../../infrastructure/TodoLocalRepository.js'
+import {CompleteTodoCommand} from '../../application/services/todos/commands/CompleteTodoCommand.js'
+import {GetTodosQuerie} from '../../application/services/todos/queries/GetTodosQuerie.js'
+import {TodoLocalRepository} from '../../application/services/todos/TodoLocalRepository.js'
 
 class NandawtekTodoList extends HTMLElement {
   constructor() {
@@ -14,7 +14,7 @@ class NandawtekTodoList extends HTMLElement {
     this._addTemplate()
     this._events()
   }
-  
+
   connectedCallback() {
     this.stateManager.register(this)
   }

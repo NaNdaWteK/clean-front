@@ -1,4 +1,4 @@
-import { Query } from '../../domains/useCases/Query'
+import { Query } from '../../../core/Query'
 
 export class GetTodosQuerie extends Query {
   constructor(stateManager, todoRepository) {

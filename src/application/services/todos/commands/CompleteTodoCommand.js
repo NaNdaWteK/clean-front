@@ -1,5 +1,5 @@
-import { Command } from '../../domains/useCases/Command'
-import { TodoNotFoundError } from '../../infrastructure/exceptions/TodoNotFoundError'
+import { Command } from '../../../core/Command'
+import { TodoNotFoundError } from '../../../../infrastructure/exceptions/TodoNotFoundError'
 
 export class CompleteTodoCommand extends Command {
   constructor(stateManager, todoRepository) {

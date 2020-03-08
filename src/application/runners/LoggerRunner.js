@@ -1,14 +1,14 @@
-import { BaseLink } from './BaseLink'
-import { AlertLink } from './AlertLink'
+import { BaseRunner } from './BaseRunner'
+import { AlertRunner } from './AlertRunner'
 
-export class LoggerLink extends BaseLink {
+export class LoggerRunner extends BaseRunner {
   constructor(logger) {
     super()
     this.logger = logger
   }
 
   next(context) {
-    const alertLink = new AlertLink()
+    const AlertRunner = new AlertRunner()
     this.logger.group(context.useCase.constructor.name)
     this.logger.group('Parameters')
     this.logger.log(`${context.param ?? '-'}`)
@@ -17,7 +17,7 @@ export class LoggerLink extends BaseLink {
     this.logger.object(context.result ?? '-')
     this.logger.groupEnd()
     this.logger.groupEnd()
-    this.setNext(alertLink)
+    this.setNext(AlertRunner)
     this.nextLink.next(context)
   }
 }

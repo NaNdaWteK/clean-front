@@ -1,6 +1,6 @@
-import { BaseLink } from './BaseLink'
+import { BaseRunner } from './BaseRunner'
 
-export class ExecutorLink extends BaseLink {
+export class ExecutorRunner extends BaseRunner {
   constructor () {
     super()
   }

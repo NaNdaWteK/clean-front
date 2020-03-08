@@ -1,6 +1,6 @@
-import { BaseLink } from './BaseLink'
+import { BaseRunner } from './BaseRunner'
 
-export class AlertLink extends BaseLink {
+export class AlertRunner extends BaseRunner {
   constructor() {
     super()
   }

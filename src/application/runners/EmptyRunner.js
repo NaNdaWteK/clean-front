@@ -1,4 +1,4 @@
-export class EmptyLink {
+export class EmptyRunner {
   setNext() {
     return this
   }

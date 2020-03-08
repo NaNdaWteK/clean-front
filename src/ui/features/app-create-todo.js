@@ -1,5 +1,5 @@
-import {CreateTodoCommand} from '../../application/commands/CreateTodoCommand.js'
-import {TodoLocalRepository} from '../../infrastructure/TodoLocalRepository.js'
+import {CreateTodoCommand} from '../../application/services/todos/commands/CreateTodoCommand.js'
+import {TodoLocalRepository} from '../../application/services/todos/TodoLocalRepository.js'
 
 class NandawtekCreateTodo extends HTMLElement {
   constructor() {

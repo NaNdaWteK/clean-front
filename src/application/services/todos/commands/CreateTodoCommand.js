@@ -1,4 +1,4 @@
-import { Command } from '../../domains/useCases/Command'
+import { Command } from '../../../core/Command'
 
 export class CreateTodoCommand extends Command {
   constructor(stateManager, todoRepository) {
