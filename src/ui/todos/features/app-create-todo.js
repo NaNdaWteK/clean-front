@@ -1,13 +1,13 @@
-import {CreateTodoCommand} from '../../application/services/todos/commands/CreateTodoCommand.js'
-import {TodoLocalRepository} from '../../application/services/todos/TodoLocalRepository.js'
+import {CreateTodoCommand} from '../../../application/services/todos/commands/CreateTodoCommand.js'
+import {TodoRepository} from '../../../application/services/todos/TodoRepository.js'
 
 class NandawtekCreateTodo extends HTMLElement {
   constructor() {
     super();
     var parent = this.getRootNode().host
     this.stateManager = parent.stateManager
-    this.todoLocalRepository = new TodoLocalRepository(window)
-    this.createTodoCommand = new CreateTodoCommand(this.stateManager, this.todoLocalRepository)
+    this.todoRepository = new TodoRepository(window)
+    this.createTodoCommand = new CreateTodoCommand(this.stateManager, this.todoRepository)
     this.attachShadow({ mode: 'open' })
     this._addTemplate()
     this._events()

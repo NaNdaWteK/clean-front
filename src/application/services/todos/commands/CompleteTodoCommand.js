@@ -5,7 +5,7 @@ export class CompleteTodoCommand extends Command {
   constructor(stateManager, todoRepository) {
     super()
     this.stateManager = stateManager
-    this.todoRepository = todoRepository
+    this.repository = todoRepository
   }
 
   internalExecute(id) {
@@ -16,7 +16,7 @@ export class CompleteTodoCommand extends Command {
       throw new TodoNotFoundError()
     }
 
-    this.todoRepository.update(id, { ...foundTodo, completed: !foundTodo.completed })
+    this.repository.update(id, { ...foundTodo, completed: !foundTodo.completed })
     this._updateState(id, todos)
   }
 

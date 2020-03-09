@@ -4,7 +4,7 @@ export class CreateTodoCommand extends Command {
   constructor(stateManager, todoRepository) {
     super()
     this.stateManager = stateManager
-    this.todoRepository = todoRepository
+    this.repository = todoRepository
   }
 
   internalExecute(text) {
@@ -21,7 +21,7 @@ export class CreateTodoCommand extends Command {
       completed: false,
       text: text
     }
-    this.todoRepository.create(newTodo)
+    this.repository.create(newTodo)
     this.stateManager.patch({ todos: [...todos, newTodo] })
   }
 }

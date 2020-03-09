@@ -1,15 +1,15 @@
-import {CompleteTodoCommand} from '../../application/services/todos/commands/CompleteTodoCommand.js'
-import {GetTodosQuerie} from '../../application/services/todos/queries/GetTodosQuerie.js'
-import {TodoLocalRepository} from '../../application/services/todos/TodoLocalRepository.js'
+import {CompleteTodoCommand} from '../../../application/services/todos/commands/CompleteTodoCommand.js'
+import {GetTodosQuerie} from '../../../application/services/todos/queries/GetTodosQuerie.js'
+import {TodoRepository} from '../../../application/services/todos/TodoRepository.js'
 
 class NandawtekTodoList extends HTMLElement {
   constructor() {
     super()
     var parent = this.getRootNode().host
     this.stateManager = parent.stateManager
-    this.todoLocalRepository = new TodoLocalRepository(window)
-    this.completeTodoCommand = new CompleteTodoCommand(this.stateManager, this.todoLocalRepository)
-    this.getTodosQuery = new GetTodosQuerie(this.stateManager, this.todoLocalRepository)
+    this.todoRepository = new TodoRepository(window)
+    this.completeTodoCommand = new CompleteTodoCommand(this.stateManager, this.todoRepository)
+    this.getTodosQuery = new GetTodosQuerie(this.stateManager, this.todoRepository)
     this.attachShadow({ mode: 'open' })
     this._addTemplate()
     this._events()
