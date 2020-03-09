@@ -3,12 +3,12 @@ import { Command } from '../../../core/Command'
 export class CreateTodoCommand extends Command {
   constructor(stateManager, todoRepository) {
     super()
-    this.stateManager = stateManager
-    this.repository = todoRepository
+    this._stateManager = stateManager
+    this._repository = todoRepository
   }
 
   internalExecute(text) {
-    const todos = this.stateManager.state.todos
+    const todos = this._stateManager.state.todos
     const currentId =
       todos
         .map(todo => todo.id)
@@ -21,7 +21,7 @@ export class CreateTodoCommand extends Command {
       completed: false,
       text: text
     }
-    this.repository.create(newTodo)
-    this.stateManager.patch({ todos: [...todos, newTodo] })
+    this._repository.create(newTodo)
+    this._stateManager.patch({ todos: [...todos, newTodo] })
   }
 }

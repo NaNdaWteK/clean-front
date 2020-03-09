@@ -1,13 +1,13 @@
 import { TodoNotFoundError } from '../../../../infrastructure/exceptions/TodoNotFoundError'
 
 export class TodoLocalRepository {
-  constructor(window) {
-    this.key = 'todos'
-    this.window = window
+  constructor(window, key) {
+    this._key = key
+    this._window = window
   }
 
   findAll() {
-    const foundTodos = this.window.localStorage.getItem(this.key)
+    const foundTodos = this._window.localStorage.getItem(this._key)
     if (!foundTodos) {
       return []
     }
@@ -17,7 +17,7 @@ export class TodoLocalRepository {
   create(todo) {
     const todos = this.findAll()
     todos.push(todo)
-    this.window.localStorage.setItem(this.key, JSON.stringify(todos))
+    this._window.localStorage.setItem(this._key, JSON.stringify(todos))
   }
 
   update(id, todo) {
@@ -38,6 +38,6 @@ export class TodoLocalRepository {
       return oldTodo
     })
 
-    this.window.localStorage.setItem(this.key, JSON.stringify(updatedTodos))
+    this._window.localStorage.setItem(this._key, JSON.stringify(updatedTodos))
   }
 }

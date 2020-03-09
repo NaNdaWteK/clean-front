@@ -8,6 +8,7 @@ export class LoggerRunner extends BaseRunner {
   }
 
   next(context) {
+    console.log('LoggerRunner executed')
     const alertRunner = new AlertRunner()
     this.logger.group(context.useCase.constructor.name)
     this.logger.group('Parameters')

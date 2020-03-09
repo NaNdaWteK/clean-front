@@ -4,19 +4,19 @@ import { TodoNotFoundError } from '../../../../infrastructure/exceptions/TodoNot
 export class CompleteTodoCommand extends Command {
   constructor(stateManager, todoRepository) {
     super()
-    this.stateManager = stateManager
-    this.repository = todoRepository
+    this._stateManager = stateManager
+    this._repository = todoRepository
   }
 
   internalExecute(id) {
-    const todos = this.stateManager.state.todos
+    const todos = this._stateManager.state.todos
     const foundTodo = todos.find(todo => todo.id === parseInt(id))
 
     if (foundTodo === undefined) {
       throw new TodoNotFoundError()
     }
 
-    this.repository.update(id, { ...foundTodo, completed: !foundTodo.completed })
+    this._repository.update(id, { ...foundTodo, completed: !foundTodo.completed })
     this._updateState(id, todos)
   }
 
@@ -30,6 +30,6 @@ export class CompleteTodoCommand extends Command {
       }
       return todo
     })
-    this.stateManager.patch({ todos: updatedTodos })
+    this._stateManager.patch({ todos: updatedTodos })
   }
 }

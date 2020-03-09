@@ -3,5 +3,7 @@ export class EmptyRunner {
     return this
   }
 
-  next() {}
+  next() {
+    console.log('EmptyRunner executed')
+  }
 }

@@ -5,7 +5,7 @@ export class BaseRunner {
     this.nextLink = new EmptyRunner()
   }
   setNext(link) {
-    this.nextLink = link || new EmptyRunner()
+    this.nextLink = link || this.nextLink
     return this
   }
 }
